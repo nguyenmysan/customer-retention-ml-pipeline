@@ -1,73 +1,127 @@
 
+# JPMorganChase-Inspired Customer Churn Prediction & Retention Analytics
 
-# JPMorganChase Bank Customer Churn Prediction & Retention Analysis
+### End-to-End Machine Learning | Business Analytics | FastAPI | Docker | MLOps
 
-### An Independent Machine Learning & Business Analytics Case Study
+An independent portfolio project demonstrating how machine learning and business analytics can support customer churn prediction, retention strategy development, and data-driven decision-making in the banking industry.
 
+This project combines predictive modeling, customer risk assessment, business sensitivity analysis, REST API deployment, Docker containerization, and MLOps data drift monitoring.
 
-## Project Overview
-
-This project develops an end-to-end machine learning pipeline inspired by JPMorganChase to predict bank customer churn and support data-driven customer retention decisions.
-
-The project uses the **Binary Classification with a Bank Churn Dataset** from Kaggle Playground Series – Season 4, Episode 1 (S4E1).
-
-The project combines predictive analytics, business decision-making, API development, containerization, and MLOps monitoring.
-
-### Key Project Components
-
-- Exploratory Data Analysis (EDA)
-- Data preprocessing and feature transformation
-- Logistic Regression classification
-- Random Forest classification
-- Model evaluation and comparison
-- Customer retention business analysis
-- Business sensitivity analysis
-- FastAPI REST API
-- Docker containerization
-- MLOps data drift monitoring
-- Automated testing with pytest
-
-**Disclaimer:** This is an independent academic case study inspired by JPMorganChase. It is not affiliated with, endorsed by, or sponsored by JPMorganChase. The dataset is synthetic and does not contain actual JPMorganChase customer information.
+> **Disclaimer:** This is an independent portfolio case study inspired by JPMorganChase as an illustrative banking context. It is not affiliated with, sponsored by, or endorsed by JPMorganChase. The project uses publicly available synthetic data, not actual JPMorganChase customer information.
 
 ---
 
-## 1. Business Problem and Objectives
+## 1. Project Overview
 
-Customer churn occurs when customers stop using a company's products or services.
+Customer churn is a major business challenge in financial services. When customers discontinue banking relationships, financial institutions may lose future revenue and incur additional costs to acquire replacement customers.
 
-In banking, customer churn can increase customer acquisition costs, reduce long-term customer value, and negatively affect profitability.
+This project develops an end-to-end machine learning workflow to identify customers at risk of churn and explore how predictive analytics can inform customer retention strategies.
 
-### Project Objectives
+### Project Highlights
+
+- Analyzed **165,034 synthetic banking customer records**.
+- Built and compared Logistic Regression and Random Forest classification models.
+- Achieved **0.8870 validation ROC-AUC** with Random Forest.
+- Evaluated customer retention strategies using hypothetical campaign economics.
+- Developed a FastAPI REST API for customer churn predictions.
+- Containerized the prediction service using Docker.
+- Implemented PSI-based data drift monitoring.
+- Verified 10 automated API and monitoring tests in a local macOS environment.
+
+### Business Objectives
 
 1. Identify customers with a higher probability of churn.
-2. Compare machine learning classification models.
-3. Evaluate accuracy, precision, recall, F1-score, and ROC-AUC.
-4. Examine how classification thresholds influence retention decisions.
-5. Estimate hypothetical financial outcomes of customer retention campaigns.
-6. Develop a reproducible machine learning workflow.
-7. Demonstrate model deployment, containerization, and data drift monitoring.
+2. Compare classification models using appropriate performance metrics.
+3. Evaluate the effect of prediction thresholds on retention targeting.
+4. Estimate potential retention campaign outcomes using transparent assumptions.
+5. Build a reproducible machine learning workflow.
+6. Demonstrate model serving, containerization, and monitoring.
 
 ---
 
-## 2. Dataset
+## 2. End-to-End Machine Learning Pipeline
 
-**Official Dataset Name:** Binary Classification with a Bank Churn Dataset
+The following diagram illustrates the workflow from data preparation to customer retention decisions and model monitoring.
 
-**Competition:** Kaggle Playground Series – Season 4, Episode 1 (S4E1)
+```mermaid
+flowchart TD
+    A["🗄️ Kaggle Bank Churn Dataset"]
+    B["⚙️ Data Preprocessing"]
+    C["🤖 Logistic Regression & Random Forest"]
+    D["📊 Model Evaluation"]
+    E["🎯 Customer Churn Prediction"]
+    F["👥 Customer Retention Decision"]
+    G["🔍 PSI Data Drift Monitoring"]
+    H["🔄 Feedback & Model Review"]
 
-**Source:** https://www.kaggle.com/competitions/playground-series-s4e1/data
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    B --> G
+    G --> H
+    F -.->|"Future: campaign outcomes"| H
+    H -.->|"Future model improvements"| B
+```
+
+### Pipeline Explanation
+
+**1. Data Collection**
+
+The project uses a publicly available synthetic bank churn dataset from Kaggle.
+
+**2. Data Preprocessing**
+
+Numerical and categorical features are prepared using imputation, scaling, and encoding. Group-aware splitting is used to reduce customer-level data leakage.
+
+**3. Machine Learning**
+
+Logistic Regression and Random Forest models are trained and evaluated to predict customer churn.
+
+**4. Model Evaluation**
+
+Models are compared using accuracy, precision, recall, F1-score, and ROC-AUC.
+
+**5. Churn Prediction**
+
+The selected Random Forest model generates churn probabilities through a FastAPI prediction endpoint.
+
+**6. Business Decision**
+
+Predicted churn probabilities support hypothetical customer retention targeting and campaign analysis.
+
+**7. MLOps Monitoring**
+
+Population Stability Index (PSI) is used to detect changes in feature distributions.
+
+**8. Feedback Loop**
+
+Monitoring results can inform model review. Integrating real campaign outcomes and automated retraining are proposed future improvements, not currently implemented features.
+
+**Diagram interpretation:** Solid arrows represent the implemented analytical workflow. Dashed arrows represent proposed future feedback and model improvement activities.
+
+---
+
+## 3. Dataset
+
+**Dataset:** Binary Classification with a Bank Churn Dataset
+
+**Source:** Kaggle Playground Series — Season 4, Episode 1 (S4E1)
+
+**Dataset Link:** https://www.kaggle.com/competitions/playground-series-s4e1/data
 
 ### Dataset Information
 
 | Property | Value |
 |---|---|
-| Dataset Name | Binary Classification with a Bank Churn Dataset |
-| Competition | Kaggle Playground Series S4E1 |
-| File | train.csv |
-| Total Records | 165,034 |
-| Total Columns | 14 |
+| Dataset | Binary Classification with a Bank Churn Dataset |
+| Source | Kaggle Playground Series S4E1 |
+| File | `train.csv` |
+| Records | 165,034 |
+| Columns | 14 |
 | Missing Values | 0 |
-| Target Variable | Exited |
+| Target | `Exited` |
 | Dataset Type | Synthetic |
 
 ### Target Variable
@@ -77,29 +131,38 @@ In banking, customer churn can increase customer acquisition costs, reduce long-
 
 ### Numerical Features
 
-- CreditScore
-- Age
-- Tenure
-- Balance
-- NumOfProducts
-- HasCrCard
-- IsActiveMember
-- EstimatedSalary
+- `CreditScore`
+- `Age`
+- `Tenure`
+- `Balance`
+- `NumOfProducts`
+- `HasCrCard`
+- `IsActiveMember`
+- `EstimatedSalary`
 
 ### Categorical Features
 
-- Geography
-- Gender
+- `Geography`
+- `Gender`
 
 The columns `id`, `CustomerId`, and `Surname` are excluded from predictive features.
 
-`CustomerId` is used for group-aware data splitting to reduce customer-level data leakage.
+`CustomerId` is used for group-aware splitting to reduce the risk of customer-level data leakage.
 
-The dataset is synthetic and does not represent actual JPMorganChase customers.
+### Dataset Splitting
+
+| Dataset | Records |
+|---|---:|
+| Training | 99,011 |
+| Validation | 32,660 |
+| Testing | 33,363 |
+| **Total** | **165,034** |
+
+The project uses `GroupShuffleSplit` with random seed `42`.
 
 ---
 
-## 3. Project Structure
+## 4. Project Structure
 
 ```text
 customer-retention-ml-pipeline/
@@ -130,88 +193,65 @@ customer-retention-ml-pipeline/
 ├── reports/
 │   └── monitoring_report.json
 │
+├── docs/
+│
 ├── Dockerfile
 ├── .dockerignore
+├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
 
-**Note:** Dataset files, trained model artifacts, and monitoring outputs are generated or stored locally and may not be included in the GitHub repository.
+**Note:** The dataset, trained model artifacts, and generated monitoring reports are stored locally and may not be committed to the public GitHub repository.
 
 ---
 
-## 4. Technologies Used
+## 5. Technologies Used
 
-### Programming and Data Analysis
-
-- Python
-- pandas
-- NumPy
-- Matplotlib
-- Seaborn
-
-### Machine Learning
-
-- scikit-learn
-- Logistic Regression
-- Random Forest
-- StandardScaler
-- OneHotEncoder
-- SimpleImputer
-- GroupShuffleSplit
-- joblib
-
-### API and Deployment
-
-- FastAPI
-- Uvicorn
-- Docker
-- Docker Desktop
-
-### MLOps and Testing
-
-- Population Stability Index (PSI)
-- Batch Data Drift Monitoring
-- pytest
-- FastAPI TestClient
-
-### Development Tools
-
-- Visual Studio Code
-- Git
-- GitHub
+| Category | Technologies |
+|---|---|
+| Programming | Python |
+| Data Analysis | pandas, NumPy |
+| Visualization | Matplotlib, Seaborn |
+| Machine Learning | scikit-learn |
+| Models | Logistic Regression, Random Forest |
+| Preprocessing | StandardScaler, OneHotEncoder, SimpleImputer |
+| Model Serialization | joblib |
+| API | FastAPI, Uvicorn |
+| Containerization | Docker |
+| Monitoring | Population Stability Index (PSI) |
+| Testing | pytest |
+| Development | Visual Studio Code, Git, GitHub |
 
 ---
 
-# 5. How to Run the Project (macOS & Windows)
+# 6. How to Run the Project (macOS & Windows)
 
 This section provides step-by-step instructions for running the complete project on macOS and Windows.
 
 Each step includes commands for both operating systems.
 
-Run all commands from the repository root directory unless otherwise specified.
+Run all commands from the repository root unless otherwise specified.
 
-## Prerequisites
+### Prerequisites
 
-Install the following tools:
+Install:
 
-- Python (Python 3.12 recommended)
+- Python 3.12 (recommended)
 - Git
 - Visual Studio Code (recommended)
-- Docker Desktop (required for Docker deployment)
+- Docker Desktop (required for container deployment)
 
-Official download links:
+Download links:
 
 - Python: https://www.python.org/downloads/
 - Git: https://git-scm.com/downloads
-- Visual Studio Code: https://code.visualstudio.com/
+- VS Code: https://code.visualstudio.com/
 - Docker Desktop: https://www.docker.com/products/docker-desktop/
 
-The project was tested locally on macOS using Python 3.14.10. The Docker image uses Python 3.12.
+The project has been tested locally on macOS with Python 3.14.10. The Docker image uses Python 3.12. Windows instructions are provided but have not been independently tested.
 
-Windows instructions are provided for reproducibility but have not been independently tested.
-
-### Step 1: Clone the GitHub Repository
+### Step 1: Clone the Repository
 
 **macOS — Terminal**
 
@@ -255,7 +295,7 @@ source .venv/bin/activate
 .\.venv\Scripts\Activate.ps1
 ```
 
-If PowerShell blocks activation, Windows users can run Python directly from the virtual environment by replacing `python` in subsequent commands with `.\.venv\Scripts\python.exe`.
+If PowerShell blocks activation, use `.\.venv\Scripts\python.exe` instead of `python` in subsequent Windows commands.
 
 ### Step 4: Install Dependencies
 
@@ -275,13 +315,9 @@ python -m pip install -r requirements.txt
 
 ### Step 5: Download the Dataset
 
-**Dataset:** Binary Classification with a Bank Churn Dataset
-
 Download `train.csv` from:
 
 https://www.kaggle.com/competitions/playground-series-s4e1/data
-
-Create the data directory if necessary.
 
 **macOS — Terminal**
 
@@ -295,20 +331,16 @@ mkdir -p data
 New-Item -ItemType Directory -Force data
 ```
 
-Place the downloaded dataset at:
+Place the file at:
 
 ```text
-customer-retention-ml-pipeline/
-└── data/
-    └── train.csv
+data/train.csv
 ```
 
-The dataset is not included in the GitHub repository.
+The dataset is not distributed with the repository.
 
 ### Step 6: Run Data Preprocessing
 
-This step loads the dataset, prepares the features, and checks customer-level data splitting.
-
 **macOS — Terminal**
 
 ```bash
@@ -321,21 +353,10 @@ python src/preprocess.py
 python src/preprocess.py
 ```
 
-Verified dataset split sizes:
-
-| Dataset | Records |
-|---|---:|
-| Training | 99,011 |
-| Validation | 32,660 |
-| Testing | 33,363 |
-| Total | 165,034 |
-
-The project uses `GroupShuffleSplit` to prevent records associated with the same CustomerId from appearing in multiple datasets.
+This step prepares features and checks the group-aware dataset splitting process.
 
 ### Step 7: Train Logistic Regression
 
-Train the Logistic Regression baseline model.
-
 **macOS — Terminal**
 
 ```bash
@@ -348,12 +369,10 @@ python src/train_model.py
 python src/train_model.py
 ```
 
-The trained pipeline is saved locally in the `artifacts/` directory.
+This trains the baseline classification model.
 
 ### Step 8: Train Random Forest
 
-Train the Random Forest classification model.
-
 **macOS — Terminal**
 
 ```bash
@@ -366,17 +385,15 @@ python src/train_random_forest.py
 python src/train_random_forest.py
 ```
 
-The trained model is saved at:
+The trained model is saved locally at:
 
 ```text
 artifacts/random_forest_pipeline.joblib
 ```
 
-This model is required for FastAPI and Docker deployment.
+This artifact is required before starting FastAPI or Docker.
 
-### Step 9: Compare Machine Learning Models
-
-Compare Logistic Regression and Random Forest using validation metrics.
+### Step 9: Compare Models
 
 **macOS — Terminal**
 
@@ -390,12 +407,10 @@ python src/compare_models.py
 python src/compare_models.py
 ```
 
-The comparison evaluates accuracy, precision, recall, F1-score, and ROC-AUC.
+The script compares Logistic Regression and Random Forest using validation performance metrics.
 
 ### Step 10: Run Business Sensitivity Analysis
 
-Evaluate hypothetical customer retention campaigns under different business assumptions.
-
 **macOS — Terminal**
 
 ```bash
@@ -408,12 +423,10 @@ python src/business_sensitivity.py
 python src/business_sensitivity.py
 ```
 
-The analysis examines campaign costs, retention success rates, customer value, and classification thresholds.
+This analysis evaluates hypothetical retention campaign economics under different assumptions.
 
 ### Step 11: Run MLOps Data Drift Monitoring
 
-Run batch data drift monitoring using Population Stability Index (PSI).
-
 **macOS — Terminal**
 
 ```bash
@@ -426,22 +439,14 @@ python -m src.monitor_model
 python -m src.monitor_model
 ```
 
-Generated files:
+Generated outputs include:
 
 ```text
 artifacts/monitoring_baseline.json
 reports/monitoring_report.json
 ```
 
-The monitoring system uses a PSI alert threshold of 0.20.
-
-The validation dataset produced no drift alerts in the verified local run.
-
-A simulated 20-year increase in the Age feature successfully triggered a drift alert.
-
 ### Step 12: Run Automated Tests
-
-Run the FastAPI and MLOps test suites.
 
 **macOS — Terminal**
 
@@ -455,22 +460,15 @@ python -m pytest tests/ -v
 python -m pytest tests/ -v
 ```
 
-The test suite contains:
-
-- 6 FastAPI tests
-- 4 MLOps monitoring tests
-
-Verified local result on macOS:
+Reported local macOS result:
 
 ```text
 10 passed, 1 warning in 2.11s
 ```
 
-The warning concerns a dependency deprecation and does not indicate a failed test.
+The test suite includes six FastAPI tests and four monitoring tests.
 
 ### Step 13: Start the FastAPI Application
-
-Ensure that the Random Forest model has been trained.
 
 **macOS — Terminal**
 
@@ -484,15 +482,13 @@ python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 ```
 
-Open the interactive API documentation:
+Open:
 
-http://127.0.0.1:8000/docs
+**Swagger UI:** http://127.0.0.1:8000/docs
 
-Check API health:
+**Health Check:** http://127.0.0.1:8000/health
 
-http://127.0.0.1:8000/health
-
-Expected response:
+Expected healthy response:
 
 ```json
 {
@@ -504,18 +500,15 @@ Expected response:
 
 ### Step 14: Test the Prediction Endpoint
 
-Open Swagger UI:
+On either macOS or Windows:
 
-http://127.0.0.1:8000/docs
+1. Open `http://127.0.0.1:8000/docs`.
+2. Select `POST /predict`.
+3. Click `Try it out`.
+4. Enter the following JSON.
+5. Click `Execute`.
 
-The following steps are the same on macOS and Windows:
-
-1. Select `POST /predict`.
-2. Click `Try it out`.
-3. Enter the JSON request below.
-4. Click `Execute`.
-
-Example request:
+**Example Request**
 
 ```json
 {
@@ -532,7 +525,7 @@ Example request:
 }
 ```
 
-Example response from the tested model:
+**Example Response**
 
 ```json
 {
@@ -544,13 +537,13 @@ Example response from the tested model:
 }
 ```
 
-Prediction values may change after model retraining.
+Prediction probabilities may change after retraining.
 
-Stop FastAPI using Ctrl+C before starting Docker on the same port.
+Stop the local FastAPI server with Ctrl+C before using port 8000 for Docker.
 
 ### Step 15: Build the Docker Image
 
-Make sure Docker Desktop is installed and running.
+Ensure Docker Desktop is installed and running.
 
 **macOS — Terminal**
 
@@ -564,11 +557,7 @@ docker build -t bank-churn-api .
 docker build -t bank-churn-api .
 ```
 
-The Docker image uses Python 3.12.
-
 ### Step 16: Run the Docker Container
-
-The trained model is mounted into the container from the local `artifacts/` directory.
 
 **macOS — Terminal**
 
@@ -582,23 +571,19 @@ docker run --rm -p 8000:8000 -v "$(pwd)/artifacts:/app/artifacts:ro" bank-churn-
 docker run --rm -p 8000:8000 --mount "type=bind,source=$((Get-Location).Path)\artifacts,target=/app/artifacts,readonly" bank-churn-api
 ```
 
-On Windows, Docker Desktop should be configured to use Linux containers.
+The trained model is mounted from the local `artifacts/` directory in read-only mode.
 
-The trained model directory is mounted read-only and is not embedded in the Docker image.
+Windows users should configure Docker Desktop to use Linux containers.
 
 ### Step 17: Verify Docker Deployment
 
-Open the following URLs on either operating system.
+On either operating system, open:
 
-**Swagger UI:**
+**Swagger UI:** http://127.0.0.1:8000/docs
 
-http://127.0.0.1:8000/docs
+**Health Check:** http://127.0.0.1:8000/health
 
-**Health Check:**
-
-http://127.0.0.1:8000/health
-
-Expected health response:
+Expected response:
 
 ```json
 {
@@ -608,15 +593,11 @@ Expected health response:
 }
 ```
 
-Test the `POST /predict` endpoint using the example JSON from Step 14.
+Test the prediction endpoint using the JSON request from Step 14.
 
-The Docker deployment was successfully tested on macOS.
+Docker deployment was successfully tested locally on macOS.
 
-Press Ctrl+C to stop the container.
-
-### Step 18: Optional Exploratory Data Analysis
-
-The exploratory analysis script can also be executed separately.
+### Step 18: Run Optional Exploratory Data Analysis
 
 **macOS — Terminal**
 
@@ -632,122 +613,20 @@ python src/bank_churn_analysis.py
 
 ---
 
-## 6. Bonus Implementations (15 Points)
-
-This project includes three additional technical implementations developed to demonstrate practical machine learning deployment, containerization, and monitoring skills.
-
-The following components target the three optional bonus categories.
-
-### Bonus 1: FastAPI Model Deployment (+5 Points)
-
-A REST API was developed using FastAPI to serve customer churn predictions.
-
-**Implementation:**
-
-- Developed the `/`, `/health`, and `/predict` endpoints.
-- Integrated the trained Random Forest pipeline.
-- Implemented customer input validation.
-- Returned churn probability and predicted churn class.
-- Included risk level and recommended retention action.
-- Added interactive API documentation through Swagger UI.
-- Implemented automated API testing.
-
-**Verification:**
-
-- API startup verified locally.
-- Health endpoint successfully returned model status.
-- Prediction endpoint returned a valid churn prediction.
-- All 6 automated FastAPI tests passed.
-
-**Bonus Target: +5 Points**
-
-### Bonus 2: Docker Containerization (+5 Points)
-
-The FastAPI application was containerized using Docker.
-
-**Implementation:**
-
-- Created a Dockerfile using Python 3.12.
-- Built the `bank-churn-api` Docker image.
-- Packaged the API and Python dependencies.
-- Exposed port 8000 for API access.
-- Mounted the trained Random Forest model using a read-only volume.
-- Provided Docker execution instructions for macOS and Windows.
-
-**Verification:**
-
-- Docker image successfully built on macOS.
-- Docker container successfully started.
-- API health endpoint verified inside the container.
-- Customer churn prediction endpoint verified inside the container.
-
-**Bonus Target: +5 Points**
-
-### Bonus 3: MLOps Data Drift Monitoring (+5 Points)
-
-Batch data drift monitoring was implemented using Population Stability Index (PSI).
-
-**Implementation:**
-
-- Created a reference baseline from the training dataset.
-- Monitored 10 predictive features.
-- Calculated PSI for feature distribution changes.
-- Configured a PSI drift threshold of 0.20.
-- Generated JSON monitoring reports.
-- Implemented simulated drift detection.
-- Developed automated monitoring tests.
-
-**Verification:**
-
-- Validation data produced no drift alerts.
-- Simulated Age feature drift was successfully detected.
-- Monitoring baseline and report files were generated.
-- All 4 automated MLOps tests passed.
-
-**Bonus Target: +5 Points**
-
-### Bonus Verification Summary
-
-| Bonus Component | Target Points | Verification |
-|---|---:|---|
-| FastAPI | +5 | 6 API tests passed |
-| Docker | +5 | Image built; health and prediction endpoints verified |
-| MLOps | +5 | 4 tests passed; simulated drift detected |
-| **Total** | **+15** | **All three components implemented** |
-
-**Total Bonus Points Targeted: 15/15**
-
-These implementations were successfully tested locally on macOS. Final bonus credit depends on the instructor's evaluation and grading rubric.
-
----
-
 ## 7. Data Preprocessing and Reproducibility
 
-The project uses `GroupShuffleSplit` to reduce customer-level data leakage.
+The preprocessing pipeline includes:
 
-### Preprocessing Pipeline
+- Median imputation for numerical features.
+- StandardScaler for numerical features.
+- Most-frequent imputation for categorical features.
+- OneHotEncoder for categorical features.
+- Group-aware splitting using `CustomerId`.
+- Random seed `42`.
 
-The preprocessing workflow includes:
+The transformations are fitted on training data to reduce data leakage.
 
-- Median imputation for numerical features
-- StandardScaler for numerical features
-- Most-frequent imputation for categorical features
-- OneHotEncoder for categorical features
-
-The preprocessing transformations are fitted using training data.
-
-### Dataset Splitting
-
-| Dataset | Records |
-|---|---:|
-| Training | 99,011 |
-| Validation | 32,660 |
-| Testing | 33,363 |
-| Total | 165,034 |
-
-**Random Seed:** 42
-
-The trained machine learning pipelines are saved locally using joblib.
+The trained machine learning pipeline is serialized using joblib.
 
 ---
 
@@ -760,67 +639,77 @@ Two classification models were evaluated:
 
 ### Validation Results
 
-The following results use a classification threshold of 0.50.
+**Classification Threshold: 0.50**
 
 | Metric | Logistic Regression | Random Forest |
 |---|---:|---:|
-| Accuracy | 0.7581 | 0.8658 |
-| Precision | 0.4525 | 0.7630 |
-| Recall | 0.7391 | 0.5206 |
-| F1-score | 0.5613 | 0.6189 |
-| ROC-AUC | 0.8209 | 0.8870 |
+| Accuracy | 0.7581 | **0.8658** |
+| Precision | 0.4525 | **0.7630** |
+| Recall | **0.7391** | 0.5206 |
+| F1-score | 0.5613 | **0.6189** |
+| ROC-AUC | 0.8209 | **0.8870** |
 
-### Model Comparison
+### Model Selection
 
-Random Forest achieved higher:
+Random Forest achieved higher validation accuracy, precision, F1-score, and ROC-AUC.
 
-- Accuracy
-- Precision
-- F1-score
-- ROC-AUC
+Logistic Regression achieved higher recall at the standard classification threshold.
 
-Logistic Regression achieved higher recall at the default classification threshold.
+Random Forest was selected for the prediction API.
 
-Random Forest was selected for the FastAPI prediction service.
+The API uses a classification threshold of `0.30` to support a different trade-off between identifying at-risk customers and limiting outreach volume.
 
 ---
 
 ## 9. Business Retention Analysis
 
-The project evaluates hypothetical customer retention campaigns using predicted churn probabilities.
+The project explores hypothetical customer retention campaigns based on predicted churn probabilities.
 
-### Base-Case Assumptions
+### Business Assumptions
 
-| Parameter | Assumption |
+| Parameter | Value |
 |---|---:|
 | Contact Cost | $10 |
 | Retention Success Rate | 20% |
-| Customer Value | $200 |
-| Selected Threshold | 0.30 |
+| Retained Customer Value | $200 |
+| Classification Threshold | 0.30 |
 
-Under the evaluated assumptions, Random Forest at a threshold of 0.30 produced the highest estimated net value among the tested configurations.
+### Illustrative Business Result
 
-**Illustrative Estimated Net Value: $115,950**
+**Estimated Net Value: $115,950**
 
-This result is based on validation data and hypothetical assumptions.
+This figure represents a hypothetical scenario based on validation predictions and assumed retention economics.
 
-It is not observed revenue, proven campaign effectiveness, or an actual JPMorganChase financial result.
+It is not realized revenue, verified campaign effectiveness, or an actual JPMorganChase financial result.
 
 ---
 
-## 10. FastAPI REST API
+## 10. Model Serving with FastAPI
 
-The project provides a REST API for customer churn prediction.
+A REST API was developed to provide customer churn predictions.
+
+### API Features
+
+- Customer input validation
+- Random Forest model loading
+- Churn probability prediction
+- Binary churn classification
+- Risk level classification
+- Recommended retention action
+- Swagger API documentation
+- Automated endpoint testing
 
 ### API Endpoints
 
-| Method | Endpoint | Description |
+| Method | Endpoint | Purpose |
 |---|---|---|
-| GET | / | API information |
-| GET | /health | API and model health |
-| POST | /predict | Customer churn prediction |
+| GET | `/` | Service information |
+| GET | `/health` | API and model health |
+| POST | `/predict` | Customer churn prediction |
 
-### Example Prediction Request
+### Example Prediction
+
+**Request**
 
 ```json
 {
@@ -837,7 +726,7 @@ The project provides a REST API for customer churn prediction.
 }
 ```
 
-### Example Prediction Response
+**Illustrative Response**
 
 ```json
 {
@@ -849,53 +738,46 @@ The project provides a REST API for customer churn prediction.
 }
 ```
 
-### Prediction Interpretation
-
-For this example:
-
-- Churn Probability: 12.79%
-- Predicted Churn: 0
-- Risk Level: Low
-- Classification Threshold: 30%
-- Recommended Action: Continue standard customer engagement
-
-Prediction values may vary after retraining.
-
 ---
 
-## 11. Docker Deployment
+## 11. Containerized Deployment with Docker
 
-Docker packages the FastAPI service and its dependencies into a reproducible environment.
+The project uses Docker to package the FastAPI service and its Python dependencies.
 
-The Docker image uses Python 3.12.
+### Implementation
 
-The trained Random Forest model is loaded through a local read-only volume mount rather than being embedded in the image.
+- Python 3.12 Docker environment
+- FastAPI and Uvicorn integration
+- Containerized API service
+- Port 8000 exposure
+- Read-only model artifact mounting
+- Reproducible deployment commands
 
-### Verified Deployment
+### Verified Local Deployment
 
-The Docker implementation was successfully built and tested on macOS.
-
-Verified operations:
+The following operations were successfully tested on macOS:
 
 - Docker image build
-- Docker container startup
-- FastAPI health endpoint
+- Container startup
+- API health check
 - Random Forest model loading
-- Customer churn prediction endpoint
+- Prediction endpoint
+
+The model artifact is mounted from the host system rather than embedded in the Docker image.
 
 ---
 
-## 12. MLOps Data Drift Monitoring
+## 12. MLOps and Data Drift Monitoring
 
-The project implements batch data drift monitoring using Population Stability Index (PSI).
+The project implements batch feature-drift monitoring using Population Stability Index (PSI).
 
-### Monitoring Process
+### Monitoring Workflow
 
-1. Build a baseline from the training split.
-2. Compare validation data with the baseline.
-3. Calculate PSI for each predictive feature.
-4. Identify features exceeding the drift threshold.
-5. Generate a JSON monitoring report.
+1. Build a baseline from training data.
+2. Compare validation data against the baseline.
+3. Calculate PSI for predictive features.
+4. Flag features exceeding the drift threshold.
+5. Generate JSON monitoring reports.
 
 ### Drift Threshold
 
@@ -903,45 +785,31 @@ The project implements batch data drift monitoring using Population Stability In
 PSI >= 0.20
 ```
 
-This is a configurable monitoring heuristic, not a formal statistical significance test.
+PSI is a heuristic for detecting distribution changes and is not a formal statistical significance test.
 
-### Normal Monitoring Results
+### Monitoring Results
 
-The validation dataset produced no drift alerts.
+| Test | Result |
+|---|---|
+| Validation dataset | No drift detected |
+| Simulated Age +20 years | Drift detected |
+| Simulated Age PSI | 8.002136 |
+| Monitoring tests | 4 passed |
 
-```text
-Drift detected: False
-Drifted features: []
-```
-
-### Simulated Data Drift
-
-A simulated scenario increased the Age feature by 20 years.
-
-The monitoring system detected the change:
-
-```text
-Drift detected: True
-Drifted features: ['Age']
-Age PSI: 8.002136
-```
-
-### Monitoring Outputs
+### Generated Monitoring Files
 
 ```text
 artifacts/monitoring_baseline.json
 reports/monitoring_report.json
 ```
 
-The monitoring implementation is batch-based.
-
-It does not include continuous production monitoring, automatic retraining, or real-time external alert delivery.
+The implementation is batch-based and does not include continuous production monitoring or automatic model retraining.
 
 ---
 
 ## 13. Automated Testing
 
-The project uses pytest to validate the FastAPI and MLOps implementations.
+The project uses pytest to validate the API and monitoring components.
 
 ### FastAPI Tests
 
@@ -959,7 +827,7 @@ The project uses pytest to validate the FastAPI and MLOps implementations.
 - Categorical feature drift detection
 - Missing feature error handling
 
-### Test Results
+### Reported Test Results
 
 | Component | Passed |
 |---|---:|
@@ -967,13 +835,13 @@ The project uses pytest to validate the FastAPI and MLOps implementations.
 | MLOps | 4/4 |
 | **Total** | **10/10** |
 
-Verified local execution on macOS:
+Local macOS execution:
 
 ```text
 10 passed, 1 warning in 2.11s
 ```
 
-The warning concerns a Starlette/httpx dependency deprecation and did not cause a test failure.
+The warning was associated with a dependency deprecation and did not cause a test failure.
 
 ---
 
@@ -981,66 +849,54 @@ The warning concerns a Starlette/httpx dependency deprecation and did not cause 
 
 ### Dataset Not Found
 
-Ensure that `train.csv` is located at:
+Confirm that the Kaggle dataset is saved as:
 
 ```text
 data/train.csv
 ```
 
-### Model Not Found
+### Model Artifact Not Found
 
-Train the Random Forest model before starting FastAPI or Docker.
-
-**macOS — Terminal**
+Train the Random Forest model first:
 
 ```bash
 python src/train_random_forest.py
 ```
 
-**Windows — PowerShell**
+Verify that the following file exists:
 
-```powershell
-python src/train_random_forest.py
+```text
+artifacts/random_forest_pipeline.joblib
 ```
 
-### Missing Python Dependencies
+### Missing Dependencies
 
-**macOS — Terminal**
+Activate the virtual environment and run:
 
 ```bash
-python -m pip install -r requirements.txt
-```
-
-**Windows — PowerShell**
-
-```powershell
 python -m pip install -r requirements.txt
 ```
 
 ### Python Import Errors
 
-Ensure that commands are executed from the repository root and that the virtual environment is activated.
+Ensure commands are executed from the repository root and the virtual environment is active.
 
 ### Port 8000 Already in Use
 
-Stop the existing FastAPI or Docker server using Ctrl+C.
+Stop the existing FastAPI or Docker process before launching another server.
 
-Alternatively, use a different host port when running Docker.
-
-### Docker Cannot Load the Model
+### Docker Model Loading Error
 
 Confirm that:
 
 - Docker Desktop is running.
 - The Random Forest model has been trained.
-- The `artifacts` directory exists.
-- The model directory is mounted correctly into the container.
+- The `artifacts/` directory exists.
+- The volume mount points to the correct local directory.
 
 ### Windows PowerShell Activation Error
 
-If PowerShell blocks virtual environment activation, use the Python executable directly.
-
-For example:
+Use the virtual environment's Python executable directly:
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest tests/ -v
@@ -1050,32 +906,62 @@ For example:
 
 ## 15. Project Limitations
 
-- The dataset is synthetic.
-- Repeated CustomerIds and potentially conflicting churn labels require caution.
+- The dataset is synthetic and does not represent real JPMorganChase customers.
 - Validation performance does not guarantee real-world performance.
+- Churn predictions identify associations, not causal reasons for customer attrition.
 - Retention campaign assumptions are hypothetical.
-- Model predictions do not establish causal effects.
 - PSI monitoring does not directly measure prediction accuracy or fairness.
 - Monitoring is batch-based rather than continuous.
-- Additional security, fairness evaluation, governance, and production validation would be required before real-world deployment.
-- Final test-set evaluation should be performed after model selection is finalized.
+- Automatic model retraining is not implemented.
+- Additional security, privacy, fairness, regulatory, and operational validation would be required before production deployment.
+- Final test-set evaluation should be completed after model selection.
 
 ---
 
 ## 16. Future Improvements
 
-Potential future improvements include:
+Potential improvements include:
 
 - Hyperparameter tuning
 - Additional machine learning models
 - SHAP-based model explainability
-- Customer segmentation
 - Probability calibration
-- Fairness analysis
+- Customer segmentation
+- Fairness and subgroup analysis
 - Real-time monitoring
 - Automated retraining
 - CI/CD integration
 - Cloud deployment
-- Business intelligence dashboard integration
+- Interactive business intelligence dashboards
+- Integration of actual customer retention campaign outcomes
+
+These are proposed future improvements rather than currently implemented features.
+
+---
+
+## 17. Project Resources
+
+**GitHub Repository:**  
+https://github.com/nguyenmysan/customer-retention-ml-pipeline
+
+**Dataset:**  
+https://www.kaggle.com/competitions/playground-series-s4e1/data
+
+**Project Type:** Independent Machine Learning and Business Analytics Portfolio Case Study
+
+**Industry Context:** Retail Banking and Customer Retention
+
+**Core Skills:** Python, Data Analysis, Machine Learning, Predictive Modeling, Business Analytics, FastAPI, Docker, MLOps, Automated Testing
+
+---
+
+## 18. Disclaimer
+
+This is an independent portfolio case study using publicly available synthetic data.
+
+JPMorganChase is referenced only as an illustrative business context. This project is not affiliated with, sponsored by, or endorsed by JPMorganChase.
+
+No proprietary JPMorganChase customer information was used.
+
 
 
