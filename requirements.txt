@@ -5,3 +5,8 @@ matplotlib
 seaborn
 scikit-learn
 joblib
+fastapi
+uvicorn[standard]
+httpx
+pytest
+
