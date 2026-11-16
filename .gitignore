@@ -8,3 +8,5 @@ __pycache__/
 
 data/train.csv
 data/test.csv
+
+artifacts/*.joblib
