@@ -1,5 +1,4 @@
-
-# Customer Retention ML Pipeline
+# Bank Customer Churn Prediction & Retention Analysis | JPMorganChase Case Study
 
 ## Project Overview
 
