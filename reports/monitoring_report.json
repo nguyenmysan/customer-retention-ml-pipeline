@@ -1,0 +1,50 @@
+{
+  "timestamp": "2026-11-16T03:21:24.844104+00:00",
+  "reference_rows": 99011,
+  "monitored_rows": 32660,
+  "psi_threshold": 0.2,
+  "drift_detected": false,
+  "drifted_features": [],
+  "feature_results": {
+    "CreditScore": {
+      "psi": 0.000703,
+      "drift_detected": false
+    },
+    "Age": {
+      "psi": 0.000834,
+      "drift_detected": false
+    },
+    "Tenure": {
+      "psi": 0.000574,
+      "drift_detected": false
+    },
+    "Balance": {
+      "psi": 0.000232,
+      "drift_detected": false
+    },
+    "NumOfProducts": {
+      "psi": 2.5e-05,
+      "drift_detected": false
+    },
+    "HasCrCard": {
+      "psi": 0.0,
+      "drift_detected": false
+    },
+    "IsActiveMember": {
+      "psi": 0.0,
+      "drift_detected": false
+    },
+    "EstimatedSalary": {
+      "psi": 0.000785,
+      "drift_detected": false
+    },
+    "Geography": {
+      "psi": 0.000245,
+      "drift_detected": false
+    },
+    "Gender": {
+      "psi": 9e-06,
+      "drift_detected": false
+    }
+  }
+}
