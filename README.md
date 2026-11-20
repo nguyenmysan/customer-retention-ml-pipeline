@@ -399,15 +399,15 @@ Install the project dependencies using `requirements.txt`.
 **macOS – Terminal**
 
 ```bash
-git clone https://github.com/nguyenmysan/customer-retention-ml-pipeline.git
-cd customer-retention-ml-pipeline
+git clone https://github.com/nguyenmysan/jpmorganchase-customer-churn-prediction.git
+cd jpmorganchase-customer-churn-prediction
 ```
 
 **Windows – PowerShell**
 
 ```powershell
-git clone https://github.com/nguyenmysan/customer-retention-ml-pipeline.git
-cd customer-retention-ml-pipeline
+git clone https://github.com/nguyenmysan/jpmorganchase-customer-churn-prediction.git
+cd jpmorganchase-customer-churn-prediction
 ```
 
 ### Step 2: Create a Virtual Environment
