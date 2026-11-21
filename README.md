@@ -948,28 +948,25 @@ Before deployment, the organization would need to validate feature availability,
 
 ---
 
-## 18. Final Project Deliverables
 
-The final project is designed to provide the following materials:
+## 18. Project Resources
 
-| Deliverable | Description |
+This repository includes the following resources to support reproducibility, deployment, and business decision-making:
+
+| Resource | Description |
 |---|---|
-| Final Business Report | PDF explaining the project and results |
-| Rendered Analysis | HTML report or equivalent readable output |
-| Source Code | Python analysis and implementation |
-| Dataset Documentation | Data source and access instructions |
-| Saved Model | Fitted preprocessing and prediction pipeline |
-| FastAPI | Model-serving prototype |
-| Docker | Containerized API environment |
-| MLOps | PSI-based monitoring |
-| Automated Tests | Reproducibility and functionality checks |
-| PowerPoint | Stakeholder-focused final presentation |
-| Assignment Validation | Peer reproduction and verification |
-| Feedback Revision Log | Documentation of changes following feedback |
+| Business Report | Detailed analysis, model evaluation, and business recommendations |
+| Stakeholder Presentation | Key findings, customer retention strategies, and business implications |
+| Source Code | Python scripts for data preprocessing, model training, evaluation, and prediction |
+| Dataset Documentation | Data sources and instructions for accessing and reproducing the analysis |
+| Trained Model | Saved preprocessing and prediction pipeline |
+| FastAPI | REST API for customer churn prediction |
+| Docker | Containerized environment for model deployment |
+| MLOps | PSI-based data drift monitoring |
+| Automated Tests | Reproducibility, model validation, and API functionality checks |
 
-The presence and completeness of each deliverable should be checked in the final repository and submission package.
+The repository provides the documentation, implementation, and supporting resources needed to reproduce the analysis, evaluate model performance, and explore practical customer retention strategies.
 
----
 
 ## 19. Final Business Recommendation
 
