@@ -442,28 +442,21 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 ```
 
-### Step 4: Download the Dataset
 
-Download `train.csv` from:
+### Step 4: Verify the Dataset
 
-https://www.kaggle.com/competitions/playground-series-s4e1/data
+The training dataset (`train.csv`) is already included in this repository.
 
-**macOS – Terminal**
-
-```bash
-mkdir -p data
-```
-
-**Windows – PowerShell**
-
-```powershell
-New-Item -ItemType Directory -Force data
-```
-
-Place the downloaded file at:
+After cloning the repository, the dataset is available at:
 
 ```text
 data/train.csv
+```
+
+No additional dataset download or setup is required.
+
+Both macOS and Windows users can proceed directly to Step 5: Run Data Preprocessing.
+
 ```
 
 ### Step 5: Run Data Preprocessing
