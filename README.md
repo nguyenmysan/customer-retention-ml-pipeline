@@ -449,15 +449,12 @@ The training dataset (`train.csv`) is already included in this repository.
 
 After cloning the repository, the dataset is available at:
 
-```text
-data/train.csv
-```
+    data/train.csv
 
 No additional dataset download or setup is required.
 
 Both macOS and Windows users can proceed directly to Step 5: Run Data Preprocessing.
 
-```
 
 ### Step 5: Run Data Preprocessing
 
@@ -472,6 +469,7 @@ python src/preprocess.py
 ```powershell
 python src/preprocess.py
 ```
+
 
 ### Step 6: Train Logistic Regression
 
